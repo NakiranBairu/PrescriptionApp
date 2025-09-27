@@ -1,0 +1,46 @@
+@model PrescriptionApp.Models.Prescription
+
+@{
+    ViewData["Title"] = Model.PrescriptionId == 0 ? "Add Prescription" : "Edit Prescription";
+}
+
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <h2>@ViewData["Title"]</h2>
+        
+        <form asp-action="AddEdit" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="PrescriptionId" />
+
+            <div class="mb-3">
+                <label asp-for="MedicationName" class="form-label">Medication Name</label>
+                <input asp-for="MedicationName" class="form-control" />
+                <span asp-validation-for="MedicationName" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="FillStatus" class="form-label">Fill Status</label>
+                <select asp-for="FillStatus" asp-items="ViewBag.FillStatuses" class="form-select">
+                    <option value="">Select Status</option>
+                </select>
+                <span asp-validation-for="FillStatus" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Cost" class="form-label">Cost</label>
+                <input asp-for="Cost" class="form-control" />
+                <span asp-validation-for="Cost" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="RequestTime" class="form-label">Request Date</label>
+                <input asp-for="RequestTime" class="form-control" readonly />
+            </div>
+
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button type="submit" class="btn btn-primary me-md-2">Save</button>
+                <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+/* Custom styles for Walgreens theme */
+.navbar-brand {
+    font-weight: bold;
+}
+
+.table th {
+    background-color:rgb(8, 94, 160);
+    color: white;
+}
+
+.badge-new { background-color: #6c757d; }
+.badge-filled { background-color: #28a745; }
+.badge-pending { background-color: #ffc107; color: #212529; }
